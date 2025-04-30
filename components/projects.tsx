@@ -29,7 +29,7 @@ export default function Projects() {
       liveUrl: "https://gowatchgo.netlify.app/",
       githubUrl: "https://github.com/Go-Watch-Go/Go-Watch-Go-version-1-",
     },
-    {a
+    {
       title: "E-Commerce Website",
       description:
         "A responsive e-commerce website where users can browse and purchase products. Built with React & Tailwind Css",

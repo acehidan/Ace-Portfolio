@@ -1,19 +1,26 @@
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import { Code, Smartphone, Layout, Layers, Palette, GitBranch } from "lucide-react"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import {
+  Code,
+  Smartphone,
+  Layout,
+  Layers,
+  Palette,
+  GitBranch,
+} from "lucide-react";
 
 export default function Skills() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
-  })
+  });
 
-  const x = useTransform(scrollYProgress, [0, 1], [0, -100])
+  const x = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   const skills = [
     {
@@ -25,7 +32,8 @@ export default function Skills() {
     {
       name: "React Native",
       icon: <Smartphone className="h-8 w-8 text-primary" />,
-      description: "Developing cross-platform mobile apps with React Native Expo",
+      description:
+        "Developing cross-platform mobile apps with React Native Expo",
       level: 85,
     },
     {
@@ -43,7 +51,8 @@ export default function Skills() {
     {
       name: "Tailwind & Material UI",
       icon: <Palette className="h-8 w-8 text-primary" />,
-      description: "Styling applications with utility-first CSS and component libraries",
+      description:
+        "Styling applications with utility-first CSS and component libraries",
       level: 92,
     },
     {
@@ -52,7 +61,7 @@ export default function Skills() {
       description: "Version control and collaboration using Git",
       level: 85,
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -62,7 +71,7 @@ export default function Skills() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -71,7 +80,7 @@ export default function Skills() {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
@@ -127,27 +136,31 @@ export default function Skills() {
               <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-3xl transform translate-x-8 -translate-y-8 group-hover:translate-x-6 group-hover:-translate-y-6 transition-transform duration-300" />
 
               <div className="relative z-10">
-                <div className="p-4 bg-primary/10 rounded-xl mb-6 inline-block">{skill.icon}</div>
+                <div className="p-4 bg-primary/10 rounded-xl mb-6 inline-block">
+                  {skill.icon}
+                </div>
                 <h3 className="text-xl font-semibold mb-3">{skill.name}</h3>
-                <p className="text-muted-foreground mb-6">{skill.description}</p>
+                <p className="text-muted-foreground mb-6">
+                  {skill.description}
+                </p>
 
-                <div className="w-full bg-muted rounded-full h-2 mb-1">
+                {/* <div className="w-full bg-muted rounded-full h-2 mb-1">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${skill.level}%` }}
                     transition={{ duration: 1, delay: 0.3 + index * 0.1 }}
                     className="h-full bg-primary rounded-full"
                   />
-                </div>
-                <div className="flex justify-between text-sm">
+                </div> */}
+                {/* <div className="flex justify-between text-sm">
                   <span>Proficiency</span>
                   <span>{skill.level}%</span>
-                </div>
+                </div> */}
               </div>
             </motion.div>
           ))}
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

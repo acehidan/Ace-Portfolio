@@ -1,44 +1,44 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Moon, Sun, Menu, X } from "lucide-react"
-import { useTheme } from "next-themes"
-import { Button } from "@/components/ui/button"
-import { motion, AnimatePresence } from "framer-motion"
-import { useMobile } from "@/hooks/use-mobile"
+import { useState, useEffect } from "react";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { useTheme } from "next-themes";
+import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
+import { useMobile } from "@/hooks/use-mobile";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-  const isMobile = useMobile()
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const isMobile = useMobile();
 
   // Prevent hydration mismatch
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
+      setScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const scrollToSection = (id: string) => {
-    setMobileMenuOpen(false)
-    const element = document.getElementById(id)
+    setMobileMenuOpen(false);
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   const navItems = [
     { name: "Home", id: "hero" },
@@ -47,12 +47,14 @@ export default function Navbar() {
     { name: "Projects", id: "projects" },
     { name: "Experience", id: "experience" },
     { name: "Contact", id: "contact" },
-  ]
+  ];
 
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-3 backdrop-blur-md bg-background/80 border-b border-border" : "py-5 bg-transparent"
+        scrolled
+          ? "py-3 backdrop-blur-md bg-background/80 border-b border-border"
+          : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -62,7 +64,7 @@ export default function Navbar() {
           transition={{ duration: 0.5 }}
           className="text-xl font-bold relative"
         >
-          <span className="text-primary">Dev</span>Portfolio
+          <span className="text-primary">Acehidan </span>Portfolio
           <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-transparent"></div>
         </motion.div>
 
@@ -99,7 +101,13 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <div className="flex items-center md:hidden">
           {mounted && (
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="mr-2" aria-label="Toggle theme">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="mr-2"
+              aria-label="Toggle theme"
+            >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </Button>
           )}
@@ -139,5 +147,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }

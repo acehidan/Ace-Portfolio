@@ -54,7 +54,7 @@ export default function About() {
               About Me
             </div>
             <h2 className="text-3xl md:text-4xl font-bold">
-              Passionate Frontend Developer with a Creative Edge
+              Passionate Frontend Developer
             </h2>
 
             <div className="space-y-4 text-lg text-muted-foreground">
@@ -78,12 +78,12 @@ export default function About() {
               </p>
             </div>
 
-            <div className="pt-4">
+            {/* <div className="pt-4">
               <Button size="lg" variant="outline" className="rounded-full px-6">
                 <FileText className="mr-2 h-4 w-4" />
                 View Resume
               </Button>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

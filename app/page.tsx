@@ -1,13 +1,15 @@
-import dynamic from "next/dynamic"
+import dynamic from "next/dynamic";
 
 // Use dynamic imports for components with animations to improve initial load time
-const Hero = dynamic(() => import("@/components/hero"), { ssr: true })
-const About = dynamic(() => import("@/components/about"), { ssr: true })
-const Skills = dynamic(() => import("@/components/skills"), { ssr: true })
-const Projects = dynamic(() => import("@/components/projects"), { ssr: true })
-const Experience = dynamic(() => import("@/components/experience"), { ssr: true })
-const Contact = dynamic(() => import("@/components/contact"), { ssr: true })
-const Footer = dynamic(() => import("@/components/footer"), { ssr: true })
+const Hero = dynamic(() => import("@/components/hero"), { ssr: true });
+const About = dynamic(() => import("@/components/about"), { ssr: true });
+const Skills = dynamic(() => import("@/components/skills"), { ssr: true });
+const Projects = dynamic(() => import("@/components/projects"), { ssr: true });
+const Experience = dynamic(() => import("@/components/experience"), {
+  ssr: true,
+});
+const Contact = dynamic(() => import("@/components/contact"), { ssr: true });
+const Footer = dynamic(() => import("@/components/footer"), { ssr: true });
 
 export default function Home() {
   return (
@@ -18,8 +20,8 @@ export default function Home() {
       <Skills />
       <Projects />
       <Experience />
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </main>
-  )
+  );
 }

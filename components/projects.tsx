@@ -50,36 +50,36 @@ export default function Projects() {
         "https://drive.google.com/uc?export=download&id=1xZIuOnvNc33ZJ0mBbZpbjaALMVwJ4Syn",
       githubUrl: "https://github.com/acehidan/ecommerce-app",
     },
-    {
-      title: "Dashboard Analytics",
-      description:
-        "An interactive dashboard for visualizing business metrics and analytics with customizable widgets and reports.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["Vue.js", "D3.js", "Tailwind CSS", "REST API"],
-      category: "Web App",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Social Media Platform",
-      description:
-        "A feature-rich social media platform with real-time messaging, post sharing, and user profiles.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["React", "Socket.io", "Express", "MongoDB"],
-      category: "Web App",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
-    {
-      title: "Weather Forecast App",
-      description:
-        "A beautiful weather application with 7-day forecasts, location-based weather data, and interactive maps.",
-      image: "/placeholder.svg?height=400&width=600",
-      tags: ["React", "OpenWeather API", "Leaflet", "Chart.js"],
-      category: "Web App",
-      liveUrl: "#",
-      githubUrl: "#",
-    },
+    // {
+    //   title: "Dashboard Analytics",
+    //   description:
+    //     "An interactive dashboard for visualizing business metrics and analytics with customizable widgets and reports.",
+    //   image: "/placeholder.svg?height=400&width=600",
+    //   tags: ["Vue.js", "D3.js", "Tailwind CSS", "REST API"],
+    //   category: "Web App",
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    // },
+    // {
+    //   title: "Social Media Platform",
+    //   description:
+    //     "A feature-rich social media platform with real-time messaging, post sharing, and user profiles.",
+    //   image: "/placeholder.svg?height=400&width=600",
+    //   tags: ["React", "Socket.io", "Express", "MongoDB"],
+    //   category: "Web App",
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    // },
+    // {
+    //   title: "Weather Forecast App",
+    //   description:
+    //     "A beautiful weather application with 7-day forecasts, location-based weather data, and interactive maps.",
+    //   image: "/placeholder.svg?height=400&width=600",
+    //   tags: ["React", "OpenWeather API", "Leaflet", "Chart.js"],
+    //   category: "Web App",
+    //   liveUrl: "#",
+    //   githubUrl: "#",
+    // },
   ];
 
   const containerVariants = {
@@ -210,11 +210,11 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        <div className="flex justify-center mt-12">
+        {/* <div className="flex justify-center mt-12">
           <Button variant="outline" className="rounded-full px-8">
             View All Projects
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

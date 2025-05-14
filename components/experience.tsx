@@ -1,62 +1,61 @@
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import { MapPin, Award } from "lucide-react"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import { MapPin, Award } from "lucide-react";
 
 export default function Experience() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
-  })
+  });
 
-  const x = useTransform(scrollYProgress, [0, 1], [0, 100])
+  const x = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   const experiences = [
     {
-      title: "Senior Frontend Developer",
-      company: "Tech Innovations Inc.",
-      period: "2023 - Present",
-      location: "San Francisco, CA (Remote)",
-      description:
-        "Leading the frontend development team in building a SaaS platform using Next.js and Tailwind CSS. Implementing complex UI components and optimizing performance.",
-      achievements: [
-        "Reduced page load time by 40% through code optimization",
-        "Led the migration from Pages Router to App Router",
-        "Mentored junior developers and established coding standards",
-      ],
-    },
-    {
       title: "Frontend Developer",
-      company: "Digital Solutions Ltd.",
-      period: "2021 - 2023",
-      location: "New York, NY",
+      company: "OTAS Tech Solutions",
+      period: "2022 - Present",
+      location: "Yangon, Myanmar",
       description:
-        "Developed responsive web applications using React and Vue.js. Collaborated with designers and backend developers to implement new features and improve user experience.",
+        "Developing responsive web applications using React and Vue.js. Collaborated with designers and backend developers to implement new features and improve user experience.",
       achievements: [
         "Built 5+ major features for the company's flagship product",
-        "Implemented CI/CD pipeline for frontend projects",
         "Improved accessibility across all web applications",
       ],
     },
-    {
-      title: "Junior Web Developer",
-      company: "Creative Web Agency",
-      period: "2019 - 2021",
-      location: "Boston, MA",
-      description:
-        "Built and maintained client websites using HTML, CSS, and JavaScript. Assisted in transitioning legacy projects to modern frameworks like React.",
-      achievements: [
-        "Developed 10+ client websites from design to deployment",
-        "Reduced bounce rate by 25% through UX improvements",
-        "Implemented responsive designs for mobile-first experiences",
-      ],
-    },
-  ]
+    // {
+    //   title: "Frontend Developer",
+    //   company: "Digital Solutions Ltd.",
+    //   period: "2021 - 2023",
+    //   location: "New York, NY",
+    //   description:
+    //     "Developed responsive web applications using React and Vue.js. Collaborated with designers and backend developers to implement new features and improve user experience.",
+    //   achievements: [
+    //     "Built 5+ major features for the company's flagship product",
+    //     "Implemented CI/CD pipeline for frontend projects",
+    //     "Improved accessibility across all web applications",
+    //   ],
+    // },
+    // {
+    //   title: "Junior Web Developer",
+    //   company: "Creative Web Agency",
+    //   period: "2019 - 2021",
+    //   location: "Boston, MA",
+    //   description:
+    //     "Built and maintained client websites using HTML, CSS, and JavaScript. Assisted in transitioning legacy projects to modern frameworks like React.",
+    //   achievements: [
+    //     "Developed 10+ client websites from design to deployment",
+    //     "Reduced bounce rate by 25% through UX improvements",
+    //     "Implemented responsive designs for mobile-first experiences",
+    //   ],
+    // },
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -66,7 +65,7 @@ export default function Experience() {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, x: -30 },
@@ -75,7 +74,7 @@ export default function Experience() {
       x: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   return (
     <section id="experience" className="py-20 relative overflow-hidden">
@@ -123,7 +122,11 @@ export default function Experience() {
             className="relative border-l-2 border-primary/30 pl-8 ml-4 space-y-16"
           >
             {experiences.map((exp, index) => (
-              <motion.div key={index} variants={itemVariants} className="relative">
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="relative"
+              >
                 <div className="absolute w-5 h-5 bg-primary rounded-full -left-[2.85rem] top-1.5 border-4 border-background" />
                 <div className="absolute w-10 h-10 bg-primary/10 rounded-full -left-[3.35rem] top-0 animate-ping-slow opacity-50" />
 
@@ -136,7 +139,9 @@ export default function Experience() {
                       {exp.period}
                     </span>
                     <h3 className="text-2xl font-semibold">{exp.title}</h3>
-                    <h4 className="text-xl text-primary font-medium mt-1">{exp.company}</h4>
+                    <h4 className="text-xl text-primary font-medium mt-1">
+                      {exp.company}
+                    </h4>
 
                     <div className="flex flex-wrap gap-4 mt-3 text-sm text-muted-foreground">
                       <div className="flex items-center">
@@ -169,5 +174,5 @@ export default function Experience() {
         </div>
       </div>
     </section>
-  )
+  );
 }
